@@ -10,7 +10,6 @@ namespace GreenThumb.Models
         public string Username { get; set; } = null!;
         [EncryptColumn]
         public string Password { get; set; } = null!;
-        public int? GardenId { get; set; }
         public Garden? Garden { get; set; }
     }
 }

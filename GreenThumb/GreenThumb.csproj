@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EntityFrameworkCore.EncryptColumn" Version="6.0.8" />
     <PackageReference Include="microsoft.entityframeworkcore" Version="6.0.25" />
     <PackageReference Include="microsoft.entityframeworkcore.design" Version="6.0.25">

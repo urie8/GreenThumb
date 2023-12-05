@@ -7,6 +7,82 @@
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Content="New user"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="50"
+            FontWeight="SemiBold"
+            />
+        <Label
+            Grid.Column="1"
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Content="Username:"
+            FontSize="40"
+            />
+        <Label
+            Grid.Column="1"
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Content="Password:"
+            FontSize="40"
+            />
+        <TextBox
+            Name="txtUsername"
+            Grid.Column="2"
+            Grid.Row="2"
+            Height="50"
+            Width="300"
+            />
+        <PasswordBox
+            Name="txtPassword"
+            Grid.Column="2"
+            Grid.Row="3"
+            Height="50"
+            Width="300"
+             />
+        <Button
+            Name="btnCreate"
+            Grid.Column="1"
+            Grid.Row="4"
+            Height="60"
+            Width="300"
+            Content="Create user"
+            FontSize="35"
+            FontWeight="SemiBold" Click="btnCreate_Click"
+            />
+        <Button
+            Name="btnExit"
+            Grid.Column="2"
+            Grid.Row="4"
+            Height="60"
+            Width="300"
+            Content="Exit"
+            FontSize="35"
+            FontWeight="SemiBold"
+            Foreground="White"
+            Background="Red"
+              />
     </Grid>
 </Window>

@@ -12,7 +12,6 @@ namespace GreenThumb.Database
         public GreenThumbDbContext()
         {
             _provider = new GenerateEncryptionProvider("xxxxxxxxxxxxxxxxxxxxxxxx");
-
         }
 
         public DbSet<User> Users { get; set; }

@@ -1,16 +1,7 @@
-﻿using System;
+﻿using GreenThumb.Database;
+using GreenThumb.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumb
 {
@@ -22,6 +13,41 @@ namespace GreenThumb
         public RegisterWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
+
+            string username = txtUsername.Text;
+
+            List<User> users = uow.UserRepository.GetAll();
+
+            foreach (User user in users)
+            {
+                if (user.Username == username)
+                {
+                    MessageBox.Show("Username already taken!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    break;
+                }
+                else
+                {
+                    User newUser = new()
+                    {
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Password
+                    };
+
+                    uow.UserRepository.Add(newUser);
+                    uow.Complete();
+
+                    MainWindow mainWindow = new();
+                    mainWindow.Show();
+                    Close();
+                }
+            }
+
         }
     }
 }

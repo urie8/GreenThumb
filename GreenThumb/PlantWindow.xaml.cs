@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenThumb.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumb
 {
@@ -19,9 +8,13 @@ namespace GreenThumb
     /// </summary>
     public partial class PlantWindow : Window
     {
-        public PlantWindow()
+        User _currentUser;
+        public PlantWindow(User user)
         {
+            _currentUser = user;
             InitializeComponent();
+
+            lblUsername.Content = user.Username;
         }
     }
 }

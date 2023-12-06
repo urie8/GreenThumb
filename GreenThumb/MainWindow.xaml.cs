@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using GreenThumb.Database;
+using System.Windows;
 
 namespace GreenThumb
 {
@@ -17,6 +18,26 @@ namespace GreenThumb
             RegisterWindow registerWindow = new();
             registerWindow.Show();
             Close();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
+
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+            if (uow.UserRepository.SignInUser(username, password))
+            {
+                PlantWindow plantWindow = new(uow.UserRepository.SignedInUser);
+                plantWindow.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("User does not exist!", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }

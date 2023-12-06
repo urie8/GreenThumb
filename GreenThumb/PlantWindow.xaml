@@ -23,5 +23,11 @@
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+
+        <Label
+            Name="lblUsername"
+            Grid.Column="1"
+            Grid.Row="1"
+            />
     </Grid>
 </Window>

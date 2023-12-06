@@ -1,6 +1,6 @@
 ﻿namespace GreenThumb.Models
 {
-    internal class GardenPlants
+    public class GardenPlants
     {
         public int GardenId { get; set; }
         public Garden Garden { get; set; } = null!;

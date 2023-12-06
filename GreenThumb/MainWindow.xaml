@@ -73,16 +73,15 @@
       FontWeight="SemiBold" Click="btnRegister_Click" 
       />
         <Button
-      Name="btnExit"
+      Name="btnLogin"
       Grid.Column="2"
       Grid.Row="4"
       Height="60"
       Width="300"
-      Content="Exit"
+      Content="Login"
       FontSize="35"
-      FontWeight="SemiBold"
-      Foreground="White"
-      Background="Red"
+      FontWeight="SemiBold" Click="btnLogin_Click"
+   
         />
     </Grid>
 </Window>

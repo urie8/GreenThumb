@@ -1,6 +1,6 @@
 ﻿namespace GreenThumb.Models
 {
-    internal class Instruction
+    public class Instruction
     {
         public int InstructionId { get; set; }
         public string InstructionType { get; set; } = null!;

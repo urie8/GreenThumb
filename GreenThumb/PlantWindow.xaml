@@ -49,6 +49,12 @@
             Content="Plants"
             FontSize="30"
             />
+        <Label
+            
+            
+            
+            
+            />
         <ListView
             Name="lstPlants"
             Grid.Column="2"
@@ -58,49 +64,44 @@
             />
         <TextBox
             Name="txtSearchbar"
-            Grid.Column="2"
+            Grid.Column="3"
             Grid.Row="6"
             TextAlignment="Center"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Width="200"
             Height="40"
-            FontSize="25"
+            FontSize="25" TextChanged="txtSearchbar_TextChanged"
             />
         <Button
-            Name="btnSearch"
-            Grid.Column="3"
-            Grid.Row="6"
-            Height="40"
-            Width="200"
-            Content="Search"
-            FontSize="25" Click="btnSearch_Click"
-            />
-        <Button
+            Name="btnAddPlant"
             Grid.Column="1"
             Grid.Row="2"
             Height="40"
             Width="150"
             Content="Add plant"
-            FontSize="20"
+            FontSize="20" Click="btnAddPlant_Click" 
             />
         <Button
+            Name="btnDetails"
             Grid.Column="1"
             Grid.Row="3"
             Height="40"
             Width="150"
             Content="Details"
-            FontSize="20"
+            FontSize="20" Click="btnDetails_Click"
             />
         <Button
+            Name="btnDelete"
             Grid.Column="1"
             Grid.Row="4"
             Height="40"
             Width="150"
             Content="Delete"
-            FontSize="20"
+            FontSize="20" Click="btnDelete_Click"
             />
         <Button
+            Name="btnExit"
             Grid.Column="1"
             Grid.Row="5"
             Height="40"
@@ -108,7 +109,7 @@
             Content="Exit"
             FontSize="20"
             Foreground="White"
-            Background="Red"
+            Background="Red" Click="btnExit_Click" 
             />
 
     </Grid>

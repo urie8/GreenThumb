@@ -83,7 +83,7 @@
             FontSize="35"
             FontWeight="SemiBold"
             Foreground="White"
-            Background="Red"
+            Background="Red" Click="btnExit_Click"
               />
     </Grid>
 </Window>

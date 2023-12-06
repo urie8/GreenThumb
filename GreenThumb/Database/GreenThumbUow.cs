@@ -8,7 +8,7 @@ namespace GreenThumb.Database
 
         public GreenThumbUserRepository UserRepository { get; }
         public GreenThumbRepository<Garden> GardenRepository { get; }
-        public GreenThumbRepository<Plant> PlantRepository { get; }
+        public GreenThumbPlantRepository PlantRepository { get; }
         public GreenThumbRepository<Instruction> InstructionRepository { get; }
         public GreenThumbRepository<GardenPlants> GardenPlantsRepository { get; }
 

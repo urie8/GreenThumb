@@ -20,7 +20,6 @@ namespace GreenThumb.Database
         public DbSet<Instruction> Instructions { get; set; }
         public DbSet<GardenPlants> GardenPlants { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -58,9 +57,7 @@ namespace GreenThumb.Database
                     Name = "Dypsis lutescens",
                     Description = "Dypsis lutescens also know as areca palm is a perennial tropical plant that grows to 6–12 m (20–39 ft) in height and spreads from 3-5 m (8-15ft). Multiple cane-like stems emerge from the base, creating a vase-like shape. The leaves are upward-arching, 2–3 m (6 ft 7 in – 9 ft 10 in) long, pinnate, with a yellow mid-rib.",
                     Family = "Arecaceae"
-                }
-
-                );
+                });
 
             modelBuilder.Entity<Instruction>()
                 .HasData(
@@ -126,8 +123,7 @@ namespace GreenThumb.Database
                     InstructionType = "Soil",
                     Description = "For the best results, we suggest you try the PLNTS organic houseplant soil. You'll make your areca palms super happy with this!",
                     PlantId = 3
-                }
-                );
+                });
         }
     }
 }

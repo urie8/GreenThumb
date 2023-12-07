@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="MyGardenWindow" Height="450" Width="800">
+        Title="MyGardenWindow" Height="450" Width="800"  Background="DarkGreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -106,7 +106,7 @@
      Content="Exit"
      FontSize="20"
      Foreground="White"
-     Background="Red" 
+     Background="Red" Click="btnExit_Click" 
      />
 
 

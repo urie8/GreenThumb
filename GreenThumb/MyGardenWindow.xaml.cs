@@ -32,5 +32,12 @@ namespace GreenThumb
             }
 
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            PlantWindow plantWindow = new(_currentUser);
+            plantWindow.Show();
+            Close();
+        }
     }
 }

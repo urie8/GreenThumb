@@ -64,7 +64,7 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
-            // Gets all the plants that where the first letter starts with the searchbar input
+            // Gets all the plants where the first letter starts with the searchbar input
             var plants = context.Plants.Where(p => p.Name.ToUpper().StartsWith(txtSearchbar.Text.ToUpper())).ToList();
 
             foreach (var plant in plants)
@@ -79,7 +79,9 @@ namespace GreenThumb
 
         private void btnAddPlant_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPlantWindow addPlantWindow = new AddPlantWindow();
+            addPlantWindow.Show();
+            Close();
         }
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)

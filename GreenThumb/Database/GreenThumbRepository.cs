@@ -28,7 +28,10 @@ namespace GreenThumb.Database
         {
             _dbSet.Add(entity);
         }
-
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _dbSet.AddRange(entities);
+        }
         public void Delete(int id)
         {
             T? entityToDelete = GetById(id);

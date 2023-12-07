@@ -11,9 +11,11 @@ namespace GreenThumb
     /// </summary>
     public partial class AddPlantWindow : Window
     {
-        public AddPlantWindow()
+        User _currentUser;
+        public AddPlantWindow(User user)
         {
             InitializeComponent();
+            _currentUser = user;
         }
 
         private void btnAddPlant_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,14 @@ namespace GreenThumb
             item.Tag = newInstrution;
             item.Content = $"{newInstrution.InstructionType} | {newInstrution.Description}";
             lstInstructions.Items.Add(item);
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            PlantWindow plantWindow = new(_currentUser);
+            plantWindow.Show();
+            Close();
+
         }
     }
 }

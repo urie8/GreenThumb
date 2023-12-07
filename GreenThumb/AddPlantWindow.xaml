@@ -43,7 +43,7 @@
             Content="Instructions"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"   
-            FontSize="30"
+            FontSize="25"
             />
         <Label
             Grid.Column="1"
@@ -121,7 +121,7 @@
             Content="Exit"
             FontSize="20"
             Foreground="White"
-            Background="Red"
+            Background="Red" Click="btnExit_Click"
              />
 
         <TextBox

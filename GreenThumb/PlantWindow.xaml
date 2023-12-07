@@ -12,6 +12,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -53,7 +54,7 @@
             Grid.Column="2"
             Grid.Row="6"
             VerticalAlignment="Center"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Right"
             Content="Search:"
             FontSize="30"
             
@@ -62,18 +63,17 @@
             Name="lstPlants"
             Grid.Column="2"
             Grid.Row="2"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             Grid.RowSpan="4"
             />
         <TextBox
             Name="txtSearchbar"
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
+            Grid.Column="3"
             Grid.Row="6"
             TextAlignment="Center"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Width="250"
+            Width="170"
             Height="40"
             FontSize="25" 
             TextChanged="txtSearchbar_TextChanged"
@@ -106,9 +106,27 @@
             FontSize="20" Click="btnDelete_Click"
             />
         <Button
-            Name="btnExit"
+            Name="btnMyGarden"
             Grid.Column="1"
             Grid.Row="5"
+            Height="40"
+            Width="150"
+            Content="My garden"
+            FontSize="20" 
+            />
+        <Button
+            Name="btnAddToGarden"
+            Grid.Column="4"
+            Grid.Row="6"
+            Height="40"
+            Width="150"
+            Content="Add to garden"
+            FontSize="20" 
+             />
+        <Button
+            Name="btnExit"
+            Grid.Column="1"
+            Grid.Row="6"
             Height="40"
             Width="150"
             Content="Exit"

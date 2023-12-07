@@ -19,7 +19,6 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
@@ -66,7 +65,7 @@
         <Button
             Name="btnCreate"
             Grid.Column="1"
-            Grid.Row="5"
+            Grid.Row="4"
             Height="60"
             Width="300"
             Content="Create user"
@@ -76,7 +75,7 @@
         <Button
             Name="btnExit"
             Grid.Column="2"
-            Grid.Row="5"
+            Grid.Row="4"
             Height="60"
             Width="300"
             Content="Exit"

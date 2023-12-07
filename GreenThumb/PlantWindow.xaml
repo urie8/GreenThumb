@@ -27,11 +27,11 @@
         </Grid.RowDefinitions>
 
         <Label
-             Grid.Column="1"
-             Grid.Row="1"
-             Content="Logged in as:"
-             VerticalAlignment="Top"
-             HorizontalAlignment="Left"
+            Grid.Column="1"
+            Grid.Row="1"
+            Content="Logged in as:"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
              />
         <Label
             Name="lblUsername"
@@ -112,7 +112,7 @@
             Height="40"
             Width="150"
             Content="My garden"
-            FontSize="20" 
+            FontSize="20" Click="btnMyGarden_Click" 
             />
         <Button
             Name="btnAddToGarden"

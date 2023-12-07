@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using GreenThumb.Database;
+using GreenThumb.Models;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace GreenThumb
 {
@@ -7,9 +10,27 @@ namespace GreenThumb
     /// </summary>
     public partial class MyGardenWindow : Window
     {
-        public MyGardenWindow()
+        User _currentUser;
+        public MyGardenWindow(User user)
         {
             InitializeComponent();
+            _currentUser = user;
+
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
+
+            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
+
+            var userGardenPlants = uow.GardenPlantsRepository.GetByGardenIdWithPlants(userGarden.GardenId);
+
+            foreach (var gardenPlant in userGardenPlants)
+            {
+                ListViewItem item = new();
+                item.Tag = gardenPlant;
+                item.Content = gardenPlant.Plant.Name;
+                lstPlants.Items.Add(item);
+            }
+
         }
     }
 }

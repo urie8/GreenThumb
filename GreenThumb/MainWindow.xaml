@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="DarkGreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -26,11 +26,12 @@
       Grid.Column="1"
       Grid.Row="1"
       Grid.ColumnSpan="2"
-      Content="Log in"
+      Content="Green Thumb"
       VerticalAlignment="Center"
       HorizontalAlignment="Center"
       FontSize="50"
       FontWeight="SemiBold"
+      FontFamily="Corbel"
       />
         <Label
       Grid.Column="1"
@@ -38,7 +39,8 @@
       VerticalAlignment="Center"
       HorizontalAlignment="Center"
       Content="Username:"
-      FontSize="40"
+      FontSize="40" 
+      FontFamily="Corbel"
       />
         <Label
       Grid.Column="1"
@@ -47,6 +49,7 @@
       HorizontalAlignment="Center"
       Content="Password:"
       FontSize="40"
+      FontFamily="Corbel"
       />
         <TextBox
       Name="txtUsername"
@@ -54,6 +57,8 @@
       Grid.Row="2"
       Height="50"
       Width="300"
+      FontFamily="Corbel"
+      FontSize="40"
       />
         <PasswordBox
       Name="txtPassword"
@@ -61,6 +66,8 @@
       Grid.Row="3"
       Height="50"
       Width="300"
+      FontFamily="Corbel"
+      FontSize="40"
        />
         <Button
       Name="btnRegister"
@@ -70,7 +77,10 @@
       Width="300"
       Content="Register"
       FontSize="35"
-      FontWeight="SemiBold" Click="btnRegister_Click" 
+      FontWeight="SemiBold" 
+      Click="btnRegister_Click" 
+      Background="White"
+      FontFamily="Corbel"
       />
         <Button
       Name="btnLogin"
@@ -81,7 +91,8 @@
       Content="Login"
       FontSize="35"
       FontWeight="SemiBold" Click="btnLogin_Click"
-   
+      Background="White"
+      FontFamily="Corbel"
         />
     </Grid>
 </Window>

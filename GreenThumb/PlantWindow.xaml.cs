@@ -104,6 +104,7 @@ namespace GreenThumb
 
             uow.PlantRepository.Delete(selectedPlant.PlantId);
             uow.Complete();
+            UpdateUi();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -131,6 +132,13 @@ namespace GreenThumb
             uow.GardenPlantsRepository.Add(newGardenPlant);
             uow.Complete();
 
+        }
+
+        private void btnMyGarden_Click(object sender, RoutedEventArgs e)
+        {
+            MyGardenWindow myGardenWindow = new(_currentUser);
+            myGardenWindow.Show();
+            Close();
         }
     }
 }

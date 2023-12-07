@@ -1,6 +1,4 @@
-﻿using GreenThumb.Models;
-
-namespace GreenThumb.Database
+﻿namespace GreenThumb.Database
 {
     internal class GreenThumbUow
     {
@@ -10,7 +8,7 @@ namespace GreenThumb.Database
         public GreenThumbGardenRepository GardenRepository { get; }
         public GreenThumbPlantRepository PlantRepository { get; }
         public GreenThumbInstructionRepository InstructionRepository { get; }
-        public GreenThumbRepository<GardenPlants> GardenPlantsRepository { get; }
+        public GreenThumbGardenPlantsRepository GardenPlantsRepository { get; }
 
         public GreenThumbUow(GreenThumbDbContext context)
         {

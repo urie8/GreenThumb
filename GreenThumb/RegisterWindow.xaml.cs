@@ -32,6 +32,15 @@ namespace GreenThumb
                 uow.UserRepository.Add(newUser);
                 uow.Complete();
 
+                Garden newGarden = new()
+                {
+                    Name = $"{txtUsername.Text}'s Garden",
+                    UserId = newUser.UserId
+                };
+
+                uow.GardenRepository.Add(newGarden);
+                uow.Complete();
+
                 MainWindow mainWindow = new();
                 mainWindow.Show();
                 Close();

@@ -96,7 +96,14 @@ namespace GreenThumb
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
 
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+            Plant selectedPlant = (Plant)selectedItem.Tag;
+
+            uow.PlantRepository.Delete(selectedPlant.PlantId);
+            uow.Complete();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -104,6 +111,26 @@ namespace GreenThumb
             MainWindow mainWindow = new();
             mainWindow.Show();
             Close();
+        }
+
+        private void btnAddToGarden_Click(object sender, RoutedEventArgs e)
+        {
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
+
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+            Plant selectedPlant = (Plant)selectedItem.Tag;
+            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
+
+            GardenPlants newGardenPlant = new()
+            {
+                PlantId = selectedPlant.PlantId,
+                GardenId = userGarden.GardenId
+            };
+
+            uow.GardenPlantsRepository.Add(newGardenPlant);
+            uow.Complete();
+
         }
     }
 }

@@ -121,7 +121,7 @@
             Height="40"
             Width="150"
             Content="Add to garden"
-            FontSize="20" 
+            FontSize="20" Click="btnAddToGarden_Click" 
              />
         <Button
             Name="btnExit"

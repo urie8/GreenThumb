@@ -7,7 +7,7 @@ namespace GreenThumb.Database
         private readonly GreenThumbDbContext _context;
 
         public GreenThumbUserRepository UserRepository { get; }
-        public GreenThumbRepository<Garden> GardenRepository { get; }
+        public GreenThumbGardenRepository GardenRepository { get; }
         public GreenThumbPlantRepository PlantRepository { get; }
         public GreenThumbInstructionRepository InstructionRepository { get; }
         public GreenThumbRepository<GardenPlants> GardenPlantsRepository { get; }

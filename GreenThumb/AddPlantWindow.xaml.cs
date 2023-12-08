@@ -30,20 +30,28 @@ namespace GreenThumb
                 Family = txtFamily.Text,
             };
 
-            uow.PlantRepository.Add(newPlant);
-            uow.Complete();
-
-            List<Instruction> instructions = new();
-
-            foreach (ListViewItem item in lstInstructions.Items)
+            if (uow.PlantRepository.PLantExists(newPlant.Name))
             {
-                Instruction instruction = (Instruction)item.Tag;
-                instruction.PlantId = newPlant.PlantId;
-                instructions.Add(instruction);
+                MessageBox.Show("Plant already exists", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                uow.PlantRepository.Add(newPlant);
+                uow.Complete();
+
+                List<Instruction> instructions = new();
+
+                foreach (ListViewItem item in lstInstructions.Items)
+                {
+                    Instruction instruction = (Instruction)item.Tag;
+                    instruction.PlantId = newPlant.PlantId;
+                    instructions.Add(instruction);
+                }
+
+                uow.InstructionRepository.AddRange(instructions);
+                uow.Complete();
             }
 
-            uow.InstructionRepository.AddRange(instructions);
-            uow.Complete();
         }
 
         private void btnAddInstruction_Click(object sender, RoutedEventArgs e)

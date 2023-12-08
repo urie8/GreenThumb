@@ -16,5 +16,13 @@ namespace GreenThumb.Database
         {
             return _context.Plants.Where(p => p.Name == name).FirstOrDefault();
         }
+        public bool PLantExists(string name)
+        {
+            if (_context.Plants.Where(p => p.Name == name).FirstOrDefault() != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

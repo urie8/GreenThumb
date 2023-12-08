@@ -19,7 +19,6 @@ namespace GreenThumb
 
             lblUsername.Content = user.Username;
             UpdateUi();
-
         }
 
         public void UpdateUi()

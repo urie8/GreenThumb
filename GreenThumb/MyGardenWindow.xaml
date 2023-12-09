@@ -95,8 +95,7 @@
      Content="Delete"
      FontSize="20" 
      />
-
-   
+        
         <Button
      Name="btnExit"
      Grid.Column="1"
@@ -108,8 +107,6 @@
      Foreground="White"
      Background="Red" Click="btnExit_Click" 
      />
-
-
 
     </Grid>
 </Window>

@@ -18,7 +18,6 @@
             PlantRepository = new(context);
             InstructionRepository = new(context);
             GardenPlantsRepository = new(context);
-
         }
 
         public void Complete()

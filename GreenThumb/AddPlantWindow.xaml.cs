@@ -23,11 +23,20 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
+            List<Instruction> instructions = new();
+
+            foreach (ListViewItem item in lstInstructions.Items)
+            {
+                Instruction instruction = (Instruction)item.Tag;
+                instructions.Add(instruction);
+            }
+
             Plant newPlant = new()
             {
                 Name = txtName.Text,
                 Description = txtDescription.Text,
                 Family = txtFamily.Text,
+                Instructions = instructions
             };
 
             if (uow.PlantRepository.PLantExists(newPlant.Name))
@@ -37,18 +46,6 @@ namespace GreenThumb
             else
             {
                 uow.PlantRepository.Add(newPlant);
-                uow.Complete();
-
-                List<Instruction> instructions = new();
-
-                foreach (ListViewItem item in lstInstructions.Items)
-                {
-                    Instruction instruction = (Instruction)item.Tag;
-                    instruction.PlantId = newPlant.PlantId;
-                    instructions.Add(instruction);
-                }
-
-                uow.InstructionRepository.AddRange(instructions);
                 uow.Complete();
             }
 

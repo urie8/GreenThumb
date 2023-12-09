@@ -15,15 +15,18 @@ namespace GreenThumb
         public PlantDetailsWindow(User user, Plant selectedPlant)
         {
             InitializeComponent();
-            GreenThumbDbContext context = new();
-            GreenThumbUow uow = new(context);
+
             _currentUser = user;
             _selectedPlant = selectedPlant;
+
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
 
             txtName.Text = selectedPlant.Name;
             txtDescription.Text = selectedPlant.Description;
             txtFamily.Text = selectedPlant.Family;
 
+            // Get all the instructions from the selected plant 
             var instructions = uow.InstructionRepository.GetAllWithPlantId(selectedPlant.PlantId);
 
             foreach (var instruction in instructions)

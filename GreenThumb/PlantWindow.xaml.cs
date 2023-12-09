@@ -39,24 +39,6 @@ namespace GreenThumb
             }
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            GreenThumbDbContext context = new();
-            GreenThumbUow uow = new(context);
-
-            lstPlants.Items.Clear();
-
-            string plantName = txtSearchbar.Text;
-
-            var searchedPlant = uow.PlantRepository.GetByName(plantName);
-
-            ListViewItem item = new();
-            item.Tag = searchedPlant;
-            item.Content = searchedPlant.Name;
-            lstPlants.Items.Add(item);
-
-        }
-
         private void txtSearchbar_TextChanged(object sender, TextChangedEventArgs e)
         {
             lstPlants.Items.Clear();

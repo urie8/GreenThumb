@@ -10,7 +10,7 @@ namespace GreenThumb.Database
         {
             _context = context;
         }
-
+        // Checks if there are any users with the same name in the database
         public bool ValidateUsername(string username)
         {
             bool isValidUsername = true;
@@ -23,7 +23,7 @@ namespace GreenThumb.Database
             }
             return isValidUsername;
         }
-
+        // Checks if the combination of username and password exists in the database and sets the current user to that user
         public bool SignInUser(string username, string password)
         {
             foreach (var user in _context.Users)

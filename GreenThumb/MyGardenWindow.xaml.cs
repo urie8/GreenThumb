@@ -19,8 +19,10 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
+            // Gets the garden from current users user id
             Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
 
+            // Creates a list of gardenplants from the users garden including the plants
             var userGardenPlants = uow.GardenPlantsRepository.GetByGardenIdWithPlants(userGarden.GardenId);
 
             foreach (var gardenPlant in userGardenPlants)

@@ -16,6 +16,7 @@ namespace GreenThumb.Database
         {
             return _context.Plants.Where(p => p.Name == name).FirstOrDefault();
         }
+        // Checks if a plant already exists in the database, by its name property
         public bool PLantExists(string name)
         {
             if (_context.Plants.Where(p => p.Name == name).FirstOrDefault() != null)

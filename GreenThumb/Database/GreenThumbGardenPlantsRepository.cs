@@ -18,5 +18,13 @@ namespace GreenThumb.Database
         {
             return _context.GardenPlants.Include(gp => gp.Plant).Where(gp => gp.GardenId == id).ToList();
         }
+        public GardenPlants? GetByGardenAndPlantId(int gardenId, int plantId)
+        {
+            return _context.GardenPlants.Where(gp => gp.GardenId == gardenId && gp.PlantId == plantId).FirstOrDefault();
+        }
+        public void DeleteGardenPlant(GardenPlants gardenPlant)
+        {
+            _context.GardenPlants.Remove(gardenPlant);
+        }
     }
 }

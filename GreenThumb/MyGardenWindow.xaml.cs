@@ -15,24 +15,7 @@ namespace GreenThumb
         {
             InitializeComponent();
             _currentUser = user;
-
-            GreenThumbDbContext context = new();
-            GreenThumbUow uow = new(context);
-
-            // Gets the garden from current users user id
-            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
-
-            // Creates a list of gardenplants from the users garden including the plants
-            var userGardenPlants = uow.GardenPlantsRepository.GetByGardenIdWithPlants(userGarden.GardenId);
-
-            foreach (var gardenPlant in userGardenPlants)
-            {
-                ListViewItem item = new();
-                item.Tag = gardenPlant;
-                item.Content = gardenPlant.Plant.Name;
-                lstPlants.Items.Add(item);
-            }
-
+            UpdateUi();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -54,7 +37,38 @@ namespace GreenThumb
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
 
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+
+            GardenPlants selectedGardenPlant = (GardenPlants)selectedItem.Tag;
+
+            GardenPlants gardenPlant = uow.GardenPlantsRepository.GetByGardenAndPlantId(selectedGardenPlant.GardenId, selectedGardenPlant.PlantId);
+            uow.GardenPlantsRepository.DeleteGardenPlant(gardenPlant);
+            uow.Complete();
+            UpdateUi();
+
+        }
+        public void UpdateUi()
+        {
+            lstPlants.Items.Clear();
+            GreenThumbDbContext context = new();
+            GreenThumbUow uow = new(context);
+
+            // Gets the garden from current users user id
+            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
+
+            // Creates a list of gardenplants from the users garden including the plants
+            var userGardenPlants = uow.GardenPlantsRepository.GetByGardenIdWithPlants(userGarden.GardenId);
+
+            foreach (var gardenPlant in userGardenPlants)
+            {
+                ListViewItem item = new();
+                item.Tag = gardenPlant;
+                item.Content = gardenPlant.Plant.Name;
+                lstPlants.Items.Add(item);
+            }
         }
     }
 }

@@ -68,7 +68,7 @@
      Width="150"
      Content="Details"
      FontSize="20"
-     Background="White"
+     Background="White" Click="btnDetails_Click"
      />
         <Button
      Name="btnDelete"
@@ -78,7 +78,7 @@
      Width="150"
      Content="Delete"
      FontSize="20"
-     Background="White"
+     Background="White" Click="btnDelete_Click"
      />
         
         <Button

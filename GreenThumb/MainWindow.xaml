@@ -28,10 +28,10 @@
       Grid.ColumnSpan="2"
       Content="Green Thumb"
       VerticalAlignment="Center"
-      HorizontalAlignment="Center"
+      HorizontalAlignment="Left"
       FontSize="50"
       FontWeight="SemiBold"
-      FontFamily="Corbel"
+      FontFamily="Corbel" Margin="190,0,0,0"
       />
         <Label
       Grid.Column="1"
@@ -94,5 +94,15 @@
       Background="White"
       FontFamily="Corbel"
         />
+        <Image 
+        Source="/Images/MicrosoftTeams-image.png" 
+        Grid.Column="1"
+        Grid.Row="1" 
+        RenderTransformOrigin="0.339,0.545" 
+        Grid.ColumnSpan="2" 
+        Margin="348,0,32,98" 
+        Grid.RowSpan="2"
+            />
+        
     </Grid>
 </Window>

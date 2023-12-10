@@ -27,8 +27,11 @@ namespace GreenThumb
 
             string username = txtUsername.Text;
             string password = txtPassword.Password;
-
-            if (uow.UserRepository.SignInUser(username, password))
+            if (txtUsername.Text == string.Empty || txtPassword.Password == string.Empty)
+            {
+                MessageBox.Show("Please enter both username and password", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else if (uow.UserRepository.SignInUser(username, password))
             {
                 PlantWindow plantWindow = new(uow.UserRepository.SignedInUser);
                 plantWindow.Show();

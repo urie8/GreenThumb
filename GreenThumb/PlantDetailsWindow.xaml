@@ -36,6 +36,7 @@
     VerticalAlignment="Center"
     HorizontalAlignment="Left"
     FontSize="25"
+    FontFamily="Corbel"
     />
         <Label
     Grid.Column="3"
@@ -44,6 +45,7 @@
     VerticalAlignment="Center"
     HorizontalAlignment="Left"   
     FontSize="25"
+    FontFamily="Corbel"
     />
         <Label
     Grid.Column="1"
@@ -52,6 +54,7 @@
     VerticalAlignment="Center"
     HorizontalAlignment="Right"   
     FontSize="20"
+    FontFamily="Corbel"       
     />
         <Label
     Grid.Column="1"
@@ -61,6 +64,7 @@
     VerticalAlignment="Center"
     HorizontalAlignment="Right"   
     FontSize="20"
+    FontFamily="Corbel"
     />
         <Label
     Grid.Column="1"
@@ -69,6 +73,7 @@
     VerticalAlignment="Center"
     HorizontalAlignment="Right"   
     FontSize="20"
+    FontFamily="Corbel"
     />
         <Label
     Grid.Column="1"
@@ -77,6 +82,7 @@
     HorizontalAlignment="Right"
     Content="Instruction type:"
     FontSize="20"
+    FontFamily="Corbel"
     />
         <Label
     Grid.Column="1"
@@ -86,6 +92,7 @@
     HorizontalAlignment="Right"
     Content="Description:"
     FontSize="20"
+    FontFamily="Corbel"
     />
         <ListView
     Name="lstInstructions"

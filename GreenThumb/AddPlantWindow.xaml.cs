@@ -20,36 +20,46 @@ namespace GreenThumb
 
         private void btnAddPlant_Click(object sender, RoutedEventArgs e)
         {
-            GreenThumbDbContext context = new();
-            GreenThumbUow uow = new(context);
-
-            List<Instruction> instructions = new();
-
-            foreach (ListViewItem item in lstInstructions.Items)
+            if (txtName.Text == string.Empty || txtFamily.Text == string.Empty || txtDescription.Text == string.Empty)
             {
-                Instruction instruction = (Instruction)item.Tag;
-                instructions.Add(instruction);
-            }
-
-            Plant newPlant = new()
-            {
-                Name = txtName.Text,
-                Description = txtDescription.Text,
-                Family = txtFamily.Text,
-                Instructions = instructions
-            };
-
-            // If a plant with the given name already exists a warning is shown
-            if (uow.PlantRepository.PLantExists(newPlant.Name))
-            {
-                MessageBox.Show("Plant already exists", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter all the inputs", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                uow.PlantRepository.Add(newPlant);
-                uow.Complete();
-            }
+                GreenThumbDbContext context = new();
+                GreenThumbUow uow = new(context);
 
+                List<Instruction> instructions = new();
+
+                foreach (ListViewItem item in lstInstructions.Items)
+                {
+                    Instruction instruction = (Instruction)item.Tag;
+                    instructions.Add(instruction);
+                }
+
+                Plant newPlant = new()
+                {
+                    Name = txtName.Text,
+                    Description = txtDescription.Text,
+                    Family = txtFamily.Text,
+                    Instructions = instructions
+                };
+
+                // If a plant with the given name already exists a warning is shown
+                if (uow.PlantRepository.PLantExists(newPlant.Name))
+                {
+                    MessageBox.Show("Plant already exists", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    uow.PlantRepository.Add(newPlant);
+                    uow.Complete();
+
+                    PlantWindow plantWindow = new(_currentUser);
+                    plantWindow.Show();
+                    Close();
+                }
+            }
         }
 
         private void btnAddInstruction_Click(object sender, RoutedEventArgs e)

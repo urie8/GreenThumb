@@ -16,22 +16,13 @@ namespace GreenThumb
             InitializeComponent();
             _currentUser = user;
             UpdateUi();
+            lblUsername.Content = user.Username;
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             PlantWindow plantWindow = new(_currentUser);
             plantWindow.Show();
-            Close();
-        }
-
-        private void btnDetails_Click(object sender, RoutedEventArgs e)
-        {
-            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-            Plant selectedPlant = (Plant)selectedItem.Tag;
-
-            PlantDetailsWindow plantDetailsWindow = new(_currentUser, selectedPlant);
-            plantDetailsWindow.Show();
             Close();
         }
 

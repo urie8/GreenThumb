@@ -27,7 +27,6 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
-
             var plants = uow.PlantRepository.GetAll();
 
             foreach (var plant in plants)
@@ -68,12 +67,19 @@ namespace GreenThumb
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-            Plant selectedPlant = (Plant)selectedItem.Tag;
+            if (lstPlants.SelectedItem != null)
+            {
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                Plant selectedPlant = (Plant)selectedItem.Tag;
 
-            PlantDetailsWindow plantDetailsWindow = new(_currentUser, selectedPlant);
-            plantDetailsWindow.Show();
-            Close();
+                PlantDetailsWindow plantDetailsWindow = new(_currentUser, selectedPlant);
+                plantDetailsWindow.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("No plant selected", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -81,12 +87,20 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
-            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-            Plant selectedPlant = (Plant)selectedItem.Tag;
+            if (lstPlants.SelectedItem != null)
+            {
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                Plant selectedPlant = (Plant)selectedItem.Tag;
 
-            uow.PlantRepository.Delete(selectedPlant.PlantId);
-            uow.Complete();
-            UpdateUi();
+                uow.PlantRepository.Delete(selectedPlant.PlantId);
+                uow.Complete();
+                UpdateUi();
+            }
+            else
+            {
+                MessageBox.Show("No plant selected", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -101,18 +115,25 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
-            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-            Plant selectedPlant = (Plant)selectedItem.Tag;
-            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
-
-            GardenPlants newGardenPlant = new()
+            if (lstPlants.SelectedItem != null)
             {
-                PlantId = selectedPlant.PlantId,
-                GardenId = userGarden.GardenId
-            };
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                Plant selectedPlant = (Plant)selectedItem.Tag;
+                Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
 
-            uow.GardenPlantsRepository.Add(newGardenPlant);
-            uow.Complete();
+                GardenPlants newGardenPlant = new()
+                {
+                    PlantId = selectedPlant.PlantId,
+                    GardenId = userGarden.GardenId
+                };
+
+                uow.GardenPlantsRepository.Add(newGardenPlant);
+                uow.Complete();
+            }
+            else
+            {
+                MessageBox.Show("No plant selected", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 

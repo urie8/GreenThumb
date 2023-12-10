@@ -41,5 +41,14 @@ namespace GreenThumb.Database
                 _dbSet.Remove(entityToDelete);
             }
         }
+        public void DeleteCompositeKey(int firstId, int secondId)
+        {
+            T? entityToDelete = _dbSet.Find(firstId, secondId);
+
+            if (entityToDelete != null)
+            {
+                _dbSet.Remove(entityToDelete);
+            }
+        }
     }
 }

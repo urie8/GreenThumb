@@ -35,8 +35,7 @@ namespace GreenThumb
 
             GardenPlants selectedGardenPlant = (GardenPlants)selectedItem.Tag;
 
-            GardenPlants gardenPlant = uow.GardenPlantsRepository.GetByGardenAndPlantId(selectedGardenPlant.GardenId, selectedGardenPlant.PlantId);
-            uow.GardenPlantsRepository.DeleteGardenPlant(gardenPlant);
+            uow.GardenPlantsRepository.DeleteCompositeKey(selectedGardenPlant.GardenId, selectedGardenPlant.PlantId);
             uow.Complete();
             UpdateUi();
 

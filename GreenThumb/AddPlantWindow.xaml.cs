@@ -64,16 +64,26 @@ namespace GreenThumb
 
         private void btnAddInstruction_Click(object sender, RoutedEventArgs e)
         {
-            Instruction newInstrution = new()
+            if (txtInstructionType.Text == string.Empty || txtInstructionDescription.Text == string.Empty)
             {
-                InstructionType = txtInstructionType.Text,
-                Description = txtInstructionDescription.Text,
-            };
+                MessageBox.Show("Please enter all the instruction information", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                Instruction newInstrution = new()
+                {
+                    InstructionType = txtInstructionType.Text,
+                    Description = txtInstructionDescription.Text,
+                };
 
-            ListViewItem item = new();
-            item.Tag = newInstrution;
-            item.Content = $"{newInstrution.InstructionType} | {newInstrution.Description}";
-            lstInstructions.Items.Add(item);
+                ListViewItem item = new();
+                item.Tag = newInstrution;
+                item.Content = $"{newInstrution.InstructionType} | {newInstrution.Description}";
+                lstInstructions.Items.Add(item);
+                txtInstructionType.Clear();
+                txtInstructionDescription.Clear();
+            }
+
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

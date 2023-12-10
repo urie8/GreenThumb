@@ -112,33 +112,35 @@ namespace GreenThumb
 
         private void btnAddToGarden_Click(object sender, RoutedEventArgs e)
         {
-            GreenThumbDbContext context = new();
-            GreenThumbUow uow = new(context);
-
-            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-            Plant selectedPlant = (Plant)selectedItem.Tag;
-            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
-
-            if (lstPlants.SelectedItem != null && !uow.GardenPlantsRepository.GardenPlantExists(userGarden.GardenId, selectedPlant.PlantId))
+            if (lstPlants.SelectedItem != null)
             {
+                GreenThumbDbContext context = new();
+                GreenThumbUow uow = new(context);
 
-                GardenPlants newGardenPlant = new()
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                Plant selectedPlant = (Plant)selectedItem.Tag;
+                Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
+
+                if (!uow.GardenPlantsRepository.GardenPlantExists(userGarden.GardenId, selectedPlant.PlantId))
                 {
-                    PlantId = selectedPlant.PlantId,
-                    GardenId = userGarden.GardenId
-                };
+                    GardenPlants newGardenPlant = new()
+                    {
+                        PlantId = selectedPlant.PlantId,
+                        GardenId = userGarden.GardenId
+                    };
 
-                uow.GardenPlantsRepository.Add(newGardenPlant);
-                uow.Complete();
+                    uow.GardenPlantsRepository.Add(newGardenPlant);
+                    uow.Complete();
 
-                var gardenPlant = uow.GardenPlantsRepository.GetByGardenAndPlantIdIncludePlants(newGardenPlant.GardenId, newGardenPlant.PlantId);
+                    var gardenPlant = uow.GardenPlantsRepository.GetByGardenAndPlantIdIncludePlants(newGardenPlant.GardenId, newGardenPlant.PlantId);
 
-                MessageBox.Show($"{gardenPlant.Plant.Name} was added to your garden!", "Plant added", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show($"{gardenPlant.Plant.Name} was added to your garden!", "Plant added", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            }
-            else if (uow.GardenPlantsRepository.GardenPlantExists(userGarden.GardenId, selectedPlant.PlantId))
-            {
-                MessageBox.Show("You already have this plant in your garden!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("You already have this plant in your garden!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {

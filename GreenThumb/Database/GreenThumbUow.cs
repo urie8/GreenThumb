@@ -3,7 +3,6 @@
     internal class GreenThumbUow
     {
         private readonly GreenThumbDbContext _context;
-
         public GreenThumbUserRepository UserRepository { get; }
         public GreenThumbGardenRepository GardenRepository { get; }
         public GreenThumbPlantRepository PlantRepository { get; }

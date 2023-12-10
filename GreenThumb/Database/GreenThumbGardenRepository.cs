@@ -11,6 +11,7 @@ namespace GreenThumb.Database
             _context = context;
         }
 
+        // Get a specific garden by a specific user
         public Garden? GetByUserId(int id)
         {
             return _context.Gardens.Where(g => g.UserId == id).FirstOrDefault();

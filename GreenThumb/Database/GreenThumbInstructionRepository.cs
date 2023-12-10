@@ -13,6 +13,7 @@ namespace GreenThumb.Database
             _context = context;
         }
 
+        // Get a list of instructions from a specific plant
         public List<Instruction> GetAllWithPlantId(int id)
         {
             return _context.Instructions.Where(i => i.PlantId == id).ToList();

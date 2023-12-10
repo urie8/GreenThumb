@@ -13,6 +13,7 @@ namespace GreenThumb.Database
             _context = context;
         }
 
+        // Get a list of gardens by id input, including all the plants
         public List<GardenPlants> GetByGardenIdWithPlants(int id)
         {
             return _context.GardenPlants.Include(gp => gp.Plant).Where(gp => gp.GardenId == id).ToList();

@@ -39,6 +39,7 @@ namespace GreenThumb
                 Instructions = instructions
             };
 
+            // If a plant with the given name already exists a warning is shown
             if (uow.PlantRepository.PLantExists(newPlant.Name))
             {
                 MessageBox.Show("Plant already exists", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -39,6 +39,7 @@ namespace GreenThumb
             }
         }
 
+        // Automatically updates the listview based on the users input in the searchbar
         private void txtSearchbar_TextChanged(object sender, TextChangedEventArgs e)
         {
             lstPlants.Items.Clear();

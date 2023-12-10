@@ -50,15 +50,16 @@
             Grid.Row="2"
             Content="Name:"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"   
+            HorizontalAlignment="Right"   
             FontSize="20"
             />
         <Label
             Grid.Column="1"
             Grid.Row="3"
+            Grid.RowSpan="2"
             Content="Description:"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"   
+            HorizontalAlignment="Right"   
             FontSize="20"
             />
         <Label
@@ -66,25 +67,26 @@
             Grid.Row="5"
             Content="Family:"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"   
+            HorizontalAlignment="Right"   
             FontSize="20"
             />
         <Label
             Grid.Column="1"
             Grid.Row="6"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Right"
             Content="Instruction type:"
             FontSize="20"
             />
         <Label
-            Grid.Column="1"
-            Grid.Row="7"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Content="Description:"
-            FontSize="20"
-            />
+    Grid.Column="1"
+    Grid.Row="7"
+    Grid.RowSpan="2"
+    VerticalAlignment="Center"
+    HorizontalAlignment="Right"
+    Content="Description:"
+    FontSize="20"
+    />
         <ListView
             Name="lstInstructions"
             Grid.Column="3"
@@ -99,7 +101,8 @@
             Height="35"
             Width="150"
             Content="Add plant"
-            FontSize="20" 
+            FontSize="20"
+            Background="White"
             Click="btnAddPlant_Click"
             />
         <Button
@@ -109,7 +112,8 @@
             Height="35"
             Width="150"
             Content="Add instruction"
-            FontSize="20" 
+            FontSize="20"
+            Background="White"
             Click="btnAddInstruction_Click"
             />
         <Button
@@ -123,46 +127,44 @@
             Foreground="White"
             Background="Red" Click="btnExit_Click"
              />
-
         <TextBox
-            Name="txtName"
-            Grid.Column="2"
-            Grid.Row="2"
-            Height="25"
-            Width="150"
-            />
+        Name="txtName"
+        Grid.Column="2"
+        Grid.Row="2"
+        Height="25"
+        Width="150"
+        />
         <TextBox
-            Name="txtDescription"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="4"
-            Height="30"
-            Width="300"
-            TextWrapping="Wrap" 
-            />
+        Name="txtDescription"
+        Grid.Column="2"
+        Grid.Row="3"
+        Grid.RowSpan="2"
+        Height="80"
+        Width="150"
+        TextWrapping="Wrap" 
+        />
         <TextBox
-            Name="txtFamily"
-            Grid.Column="2"
-            Grid.Row="5"
-            Height="25"
-            Width="150"
-            />
+        Name="txtFamily"
+        Grid.Column="2"
+        Grid.Row="5"
+        Height="25"
+        Width="150"
+        />
         <TextBox
-            Name="txtInstructionType"
-            Grid.Column="2"
-            Grid.Row="6"
-            Height="25"
-            Width="150"
-            />
-
+        Name="txtInstructionType"
+        Grid.Column="2"
+        Grid.Row="6"
+        Height="25"
+        Width="150"
+        />
         <TextBox
-            Name="txtInstructionDescription"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="8"
-            Height="30"
-            Width="300"
-            TextWrapping="Wrap" 
-            />
+        Name="txtInstructionDescription"
+        Grid.Column="2"
+        Grid.Row="7"
+        Grid.RowSpan="2"
+        Height="80"
+        Width="150"
+        TextWrapping="Wrap" 
+        />
     </Grid>
 </Window>

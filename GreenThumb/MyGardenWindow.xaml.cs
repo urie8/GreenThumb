@@ -41,5 +41,20 @@ namespace GreenThumb
             plantWindow.Show();
             Close();
         }
+
+        private void btnDetails_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+            Plant selectedPlant = (Plant)selectedItem.Tag;
+
+            PlantDetailsWindow plantDetailsWindow = new(_currentUser, selectedPlant);
+            plantDetailsWindow.Show();
+            Close();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

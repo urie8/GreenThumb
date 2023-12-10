@@ -20,35 +20,40 @@ namespace GreenThumb
             GreenThumbUow uow = new(context);
 
             string username = txtUsername.Text;
-
-            if (uow.UserRepository.ValidateUsername(username))
+            if (txtUsername.Text == string.Empty || txtPassword.Password == string.Empty)
             {
-                User newUser = new()
-                {
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Password
-                };
-
-                uow.UserRepository.Add(newUser);
-                uow.Complete();
-
-                Garden newGarden = new()
-                {
-                    Name = $"{txtUsername.Text}'s Garden",
-                    UserId = newUser.UserId
-                };
-
-                uow.GardenRepository.Add(newGarden);
-                uow.Complete();
-
-                MainWindow mainWindow = new();
-                mainWindow.Show();
-                Close();
+                MessageBox.Show("Please enter both username and password", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
-                MessageBox.Show("Username already taken!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                if (uow.UserRepository.ValidateUsername(username))
+                {
+                    User newUser = new()
+                    {
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Password
+                    };
 
+                    uow.UserRepository.Add(newUser);
+                    uow.Complete();
+
+                    Garden newGarden = new()
+                    {
+                        Name = $"{txtUsername.Text}'s Garden",
+                        UserId = newUser.UserId
+                    };
+
+                    uow.GardenRepository.Add(newGarden);
+                    uow.Complete();
+
+                    MainWindow mainWindow = new();
+                    mainWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username already taken!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 

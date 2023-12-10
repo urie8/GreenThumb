@@ -50,7 +50,7 @@
     Grid.Row="2"
     Content="Name:"
     VerticalAlignment="Center"
-    HorizontalAlignment="Center"   
+    HorizontalAlignment="Right"   
     FontSize="20"
     />
         <Label
@@ -59,7 +59,7 @@
     Grid.RowSpan="2"
     Content="Description:"
     VerticalAlignment="Center"
-    HorizontalAlignment="Center"   
+    HorizontalAlignment="Right"   
     FontSize="20"
     />
         <Label
@@ -67,14 +67,14 @@
     Grid.Row="5"
     Content="Family:"
     VerticalAlignment="Center"
-    HorizontalAlignment="Center"   
+    HorizontalAlignment="Right"   
     FontSize="20"
     />
         <Label
     Grid.Column="1"
     Grid.Row="6"
     VerticalAlignment="Center"
-    HorizontalAlignment="Center"
+    HorizontalAlignment="Right"
     Content="Instruction type:"
     FontSize="20"
     />
@@ -83,7 +83,7 @@
     Grid.Row="7"
     Grid.RowSpan="2"
     VerticalAlignment="Center"
-    HorizontalAlignment="Center"
+    HorizontalAlignment="Right"
     Content="Description:"
     FontSize="20"
     />
@@ -101,7 +101,8 @@
     Height="35"
     Width="150"
     Content="Update Plant"
-    FontSize="15" 
+    FontSize="15"
+    Background="White"
     />
         <Button
     Name="btnAddInstruction"
@@ -110,7 +111,9 @@
     Height="35"
     Width="150"
     Content="Add instruction"
+    Background="White"
     FontSize="15" 
+    IsEnabled="False"
     />
         <Button
     Name="btnEdit"
@@ -119,7 +122,8 @@
     Height="35"
     Width="150"
     Content="Edit"
-    FontSize="15" 
+    FontSize="15"
+    Background="White"
     />
         <Button
     Name="btnExit"
@@ -139,6 +143,7 @@
     Grid.Row="2"
     Height="25"
     Width="150"
+    IsReadOnly="True"
     />
         <TextBox
     Name="txtDescription"
@@ -148,6 +153,7 @@
     Height="80"
     Width="150"
     TextWrapping="Wrap" 
+    IsReadOnly="True"
     />
         <TextBox
     Name="txtFamily"
@@ -155,6 +161,7 @@
     Grid.Row="5"
     Height="25"
     Width="150"
+    IsReadOnly="True"
     />
         <TextBox
     Name="txtInstructionType"
@@ -162,6 +169,7 @@
     Grid.Row="6"
     Height="25"
     Width="150"
+    IsReadOnly="True"
     />
 
         <TextBox
@@ -172,6 +180,7 @@
     Height="80"
     Width="150"
     TextWrapping="Wrap" 
+    IsReadOnly="True"
     />
        
     </Grid>

@@ -32,6 +32,7 @@
             Content="Logged in as:"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
+            FontFamily="Corbel"
              />
         <Label
             Name="lblUsername"
@@ -41,6 +42,7 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Margin="75 0 0 0"
+            FontFamily="Corbel"
             />
         <Label
             Grid.Column="2"
@@ -49,6 +51,7 @@
             HorizontalAlignment="Left"
             Content="Plants"
             FontSize="30"
+            FontFamily="Corbel"
             />
         <Label
             Grid.Column="2"
@@ -57,7 +60,7 @@
             HorizontalAlignment="Right"
             Content="Search:"
             FontSize="30"
-            
+            FontFamily="Corbel"
             />
         <ListView
             Name="lstPlants"
@@ -85,7 +88,9 @@
             Height="40"
             Width="150"
             Content="Add plant"
-            FontSize="20" Click="btnAddPlant_Click" 
+            FontSize="20" 
+            Background="White"
+            Click="btnAddPlant_Click" 
             />
         <Button
             Name="btnDetails"
@@ -94,6 +99,7 @@
             Height="40"
             Width="150"
             Content="Details"
+            Background="White"
             FontSize="20" Click="btnDetails_Click"
             />
         <Button
@@ -103,6 +109,7 @@
             Height="40"
             Width="150"
             Content="Delete"
+            Background="White"
             FontSize="20" Click="btnDelete_Click"
             />
         <Button
@@ -112,6 +119,7 @@
             Height="40"
             Width="150"
             Content="My garden"
+            Background="White"
             FontSize="20" Click="btnMyGarden_Click" 
             />
         <Button
@@ -121,7 +129,10 @@
             Height="40"
             Width="150"
             Content="Add to garden"
-            FontSize="20" Click="btnAddToGarden_Click" 
+            FontSize="20"
+            FontFamily="Corbel"
+            Background="White"
+            Click="btnAddToGarden_Click" 
              />
         <Button
             Name="btnExit"

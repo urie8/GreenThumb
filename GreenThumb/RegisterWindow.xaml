@@ -30,7 +30,8 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             FontSize="50"
-            FontWeight="SemiBold"
+            FontFamily="Corbel"
+            FontWeight="Bold"
             />
         <Label
             Grid.Column="1"
@@ -39,6 +40,7 @@
             HorizontalAlignment="Center"
             Content="Username:"
             FontSize="40"
+            FontFamily="Corbel"
             />
         <Label
             Grid.Column="1"
@@ -47,6 +49,7 @@
             HorizontalAlignment="Center"
             Content="Password:"
             FontSize="40"
+            FontFamily="Corbel"
             />
         <TextBox
             Name="txtUsername"
@@ -54,6 +57,8 @@
             Grid.Row="2"
             Height="50"
             Width="300"
+            FontFamily="Corbel"
+            FontSize="40"
             />
         <PasswordBox
             Name="txtPassword"
@@ -61,6 +66,8 @@
             Grid.Row="3"
             Height="50"
             Width="300"
+            FontFamily="Corbel"
+            FontSize="40"
              />
         <Button
             Name="btnCreate"
@@ -70,7 +77,9 @@
             Width="300"
             Content="Create user"
             FontSize="35"
-            FontWeight="SemiBold" Click="btnCreate_Click"
+            FontFamily="Corbel"
+            Click="btnCreate_Click"
+            Background="White"
             />
         <Button
             Name="btnExit"
@@ -80,7 +89,7 @@
             Width="300"
             Content="Exit"
             FontSize="35"
-            FontWeight="SemiBold"
+            FontFamily="Corbel"
             Foreground="White"
             Background="Red" Click="btnExit_Click"
               />

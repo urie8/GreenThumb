@@ -115,11 +115,12 @@ namespace GreenThumb
             GreenThumbDbContext context = new();
             GreenThumbUow uow = new(context);
 
-            if (lstPlants.SelectedItem != null)
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+            Plant selectedPlant = (Plant)selectedItem.Tag;
+            Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
+
+            if (lstPlants.SelectedItem != null && !uow.GardenPlantsRepository.GardenPlantExists(userGarden.GardenId, selectedPlant.PlantId))
             {
-                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-                Plant selectedPlant = (Plant)selectedItem.Tag;
-                Garden userGarden = uow.GardenRepository.GetByUserId(_currentUser.UserId);
 
                 GardenPlants newGardenPlant = new()
                 {
@@ -129,6 +130,15 @@ namespace GreenThumb
 
                 uow.GardenPlantsRepository.Add(newGardenPlant);
                 uow.Complete();
+
+                var gardenPlant = uow.GardenPlantsRepository.GetByGardenAndPlantIdIncludePlants(newGardenPlant.GardenId, newGardenPlant.PlantId);
+
+                MessageBox.Show($"{gardenPlant.Plant.Name} was added to your garden!", "Plant added", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            }
+            else if (uow.GardenPlantsRepository.GardenPlantExists(userGarden.GardenId, selectedPlant.PlantId))
+            {
+                MessageBox.Show("You already have this plant in your garden!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

@@ -80,6 +80,7 @@ namespace GreenThumb
                 item.Tag = newInstrution;
                 item.Content = $"{newInstrution.InstructionType} | {newInstrution.Description}";
                 lstInstructions.Items.Add(item);
+
                 txtInstructionType.Clear();
                 txtInstructionDescription.Clear();
             }

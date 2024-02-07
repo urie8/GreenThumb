@@ -32,7 +32,7 @@
         <Label
     Grid.Column="1"
     Grid.Row="1"
-    Content="Update plant"
+    Content="Plant details"
     VerticalAlignment="Center"
     HorizontalAlignment="Left"
     FontSize="25"
